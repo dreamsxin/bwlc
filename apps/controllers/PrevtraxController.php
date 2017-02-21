@@ -65,6 +65,10 @@ class PrevtraxController extends ControllerBase {
 			$query->andwhere("num9 = :num9:", array('num9' => $num9));
 		}
 
+		if ($date) {
+			$query->andwhere("date = :date:", array('date' => $date));
+		}
+
 		$query->orderBy('id desc');
 
 		$paginator = new \Phalcon\Paginator\Adapter\QueryBuilder(array(
@@ -81,7 +85,7 @@ class PrevtraxController extends ControllerBase {
 			$this->redirect('prevtrax/index');
 		}
 
-		echo '<meta http-equiv="refresh" content="0; url=\''.'http://bwlc.myleft.org/prevtrax/get/'.((int)$page-1).'\'">';
+		echo '<meta http-equiv="refresh" content="10; url=\''.'http://bwlc.myleft.org/prevtrax/get/'.((int)$page-1).'\'">';
 		echo 'Page: '.$page."<br>".PHP_EOL;
 		ob_flush();
 		flush();
@@ -115,8 +119,6 @@ class PrevtraxController extends ControllerBase {
 								var_dump($prevtrax->getMessages());
 								exit;
 							}
-						} else {
-							break;
 						}
 		        }
 		}
