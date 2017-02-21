@@ -81,7 +81,7 @@ class PrevtraxController extends ControllerBase {
 			$this->redirect('prevtrax/index');
 		}
 
-		echo '<meta http-equiv="refresh" content="5">';
+		echo '<meta http-equiv="refresh" content="0; url=\''.'http://bwlc.myleft.org/prevtrax/get/'.((int)$page-1).'\'">';
 		echo 'Page: '.$page."<br>".PHP_EOL;
 		ob_flush();
 		flush();
@@ -92,6 +92,9 @@ class PrevtraxController extends ControllerBase {
 		$regex ="/<tr.*?>[\s\r\n]+<td>(\d+)<\/td>[\s\r\n]+<td>([\d,]+)<\/td>[\s\r\n]+<td>([\d-\s:]+)<\/td>[\s\r\n]+<\/tr>/i";
 		if(preg_match_all($regex, $body, $matches)){
 		        foreach ($matches[1] as $key => $no) {
+						echo 'NO: '.$no."<br>".PHP_EOL;
+						ob_flush();
+						flush();
 						$prevtrax = Prevtraxs::findFirst(array('no = :no:', 'bind' => array('no' => $no)));
 						if (!$prevtrax) {
 							$nums = explode(',', $matches[2][$key]);
@@ -112,14 +115,12 @@ class PrevtraxController extends ControllerBase {
 								var_dump($prevtrax->getMessages());
 								exit;
 							}
-							echo 'NO: '.$no."<br>".PHP_EOL;
-							ob_flush();
-							flush();
 						} else {
 							break;
 						}
 		        }
 		}
+		exit;
 	}
 
 }
