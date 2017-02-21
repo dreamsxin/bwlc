@@ -6,7 +6,8 @@ class PrevtraxController extends ControllerBase {
 		\Phalcon\Tag::appendTitle('PK拾');
 	}
 
-	public function indexAction($page = 1) {
+	public function indexAction() {
+		$page = $this->request->get('page', 'int', 1);
 		$no = $this->request->get('no', 'trim');
 		$num1 = $this->request->get('num1', 'trim');
 		$num2 = $this->request->get('num2', 'trim');
