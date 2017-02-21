@@ -80,6 +80,11 @@ class PrevtraxController extends ControllerBase {
 		if ($page <= 0 ) {
 			$this->redirect('prevtrax/index');
 		}
+
+		echo '<meta http-equiv="refresh" content="5">';
+		echo 'Page: '.$page."<br>".PHP_EOL;
+		ob_flush();
+		flush();
 		$client = new Phalcon\Http\Client\Adapter\Curl('http://www.bwlc.net/bulletin/prevtrax.html?page='.$page);
 
 		$response = $client->get();
@@ -88,7 +93,7 @@ class PrevtraxController extends ControllerBase {
 		if(preg_match_all($regex, $body, $matches)){
 		        foreach ($matches[1] as $key => $no) {
 						$prevtrax = Prevtraxs::findFirst(array('no = :no:', 'bind' => array('no' => $no)));
-						if (!$pretrax) {
+						if (!$prevtrax) {
 							$nums = explode(',', $matches[2][$key]);
 							$prevtrax = new Prevtraxs;
 							$prevtrax->no = $no;
@@ -103,12 +108,16 @@ class PrevtraxController extends ControllerBase {
 							$prevtrax->num9 = $nums[8];
 							$prevtrax->num10 = $nums[9];
 							$prevtrax->date = $matches[3][$key].':00';
-							if ($prevtrax->save()) {
+							if (!$prevtrax->save()) {
 								var_dump($prevtrax->getMessages());
 								exit;
 							}
+							echo 'NO: '.$no."<br>".PHP_EOL;
+							ob_flush();
+							flush();
+						} else {
+							break;
 						}
-						$this->redirect('prevtrax/get/'.($page - 1));
 		        }
 		}
 	}

@@ -71,7 +71,7 @@ try {
 	}, TRUE);
 
 	$di->set('db', function() use ($config) {
-		$connection = new Phalcon\Db\Adapter\Pdo\Mysql($configPostgresql);
+		$connection = new Phalcon\Db\Adapter\Pdo\Mysql($config->db->toArray());
 		return $connection;
 	}, TRUE);
 

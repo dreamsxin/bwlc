@@ -1,7 +1,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading">推广数据</div>
 	<div class="panel-body">
-		<form class="form-inline" method="get" action="#">
+		<form class="form-horizontal" method="get" action="#">
 			<div class="form-group">
 				<label>期号</label>
 				<?php
@@ -13,77 +13,109 @@
 				?>
 			</div>
 			<div class="form-group">
-				<label>开奖号码</label>
+				<div class="col-xs-6 col-sm-4 col-md-2">
+					<label>开奖号码</label>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num1',
 					'value' => $this->getQuery('num1'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '1号'
 				));
 				?>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num2',
 					'value' => $this->getQuery('num2'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '2号'
 				));
 				?>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num3',
 					'value' => $this->getQuery('num3'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '3号'
 				));
 				?>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num4',
 					'value' => $this->getQuery('num4'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '4号'
 				));
 				?>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num5',
 					'value' => $this->getQuery('num5'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '5号'
 				));
 				?>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num6',
 					'value' => $this->getQuery('num6'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '6号'
 				));
 				?>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num7',
 					'value' => $this->getQuery('num7'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '7号'
 				));
 				?>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num8',
 					'value' => $this->getQuery('num8'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '8号'
 				));
 				?>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num9',
 					'value' => $this->getQuery('num9'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '9号'
 				));
 				?>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2">
 				<?php
 				echo $this->tag->textField(array(
 					'num10',
 					'value' => $this->getQuery('num10'),
-					'class' => 'form-control'
+					'class' => 'form-control',
+					'placeholder' => '10号'
 				));
 				?>
+				</div>
 			</div>
 			<div class="form-group">
 				<label>日期</label>
